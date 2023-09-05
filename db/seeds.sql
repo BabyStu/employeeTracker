@@ -1,5 +1,6 @@
+USE employee_db;
 
-INSERT INTO department (id, name)
+INSERT INTO department (id, department_name)
 VALUES
     (1, 'HR'),
     (2, 'Front House'),
@@ -9,27 +10,31 @@ VALUES
 
 INSERT INTO role (id, title, salary, department_id)
 VALUES
-    (1, 'HR Specialist', 40000, 1),
-    (2, 'HR Manager', 60000, 4),
-    (3, 'Prep Cook', 45000, 3),
-    (4, 'Line Cook', 50000, 3),
-    (5, 'Head Chef', 70000, 4),
-    (6, 'Host', 30000, 2),
-    (7, 'Server', 40000, 2),
-    (8, 'Bartender', 50000, 2),
-    (9, 'FOH Manager', 70000, 4),
-    (10, 'General Manager', 100000, 4)
-    ;
+    (1,'General Manager', 100000, 4),
+    (2,'HR Manager', 60000, 4),
+    (3,'FOH Manager', 70000, 4),
+    (4,'Head Chef', 70000, 4),
+    (5,'Line Cook', 50000, 3),
+    (6,'Prep Cook', 40000, 3),
+    (7,'Server', 30000, 2),
+    (8,'Bartender', 30000, 2),
+    (9,'Host', 25000, 2),
+    (10, 'HR Specialist', 50000, 1);
 
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
 VALUES
-    ('Alice', 'Johnson', 1, 2),       -- HR Specialist
-    ('Bob', 'Smith', 2, NULL),             -- HR Manager
-    ('Eve', 'Williams', 3, 5),       -- Prep Cook
-    ('Frank', 'Davis', 4, 5),           -- Line Cook
-    ('Grace', 'Martinez', 5, NULL),     -- Head Chef
-    ('Hannah', 'Anderson', 6, 9),       -- Host
-    ('Isaac', 'Taylor', 7, 9),          -- Server
-    ('James', 'Clark', 8, 9),           -- Bartender
-    ('Lily', 'Moore', 9, NULL),         -- FOH Manager
-    ('Oliver', 'Walker', 10, NULL);     -- General Manager
+    (1, 'Alice', 'Johnson', 1, NULL), -- general manager
+    (2, 'Bob', 'Smith', 2, 1), -- HR manager
+    (3, 'Eve', 'Williams', 3, 1), -- FOH manager
+    (4, 'Frank', 'Davis', 4, 1), -- head chef
+    (5, 'Grace', 'Martinez', 5, 4), -- line cook
+    (6, 'Hannah', 'Anderson', 6, 4), -- prep cook
+    (7, 'Isaac', 'Taylor', 7, 3), -- server
+    (8, 'James', 'Clark', 8, 3), -- bartender
+    (9, 'Lily', 'Moore', 9, 3), -- host
+    (10, 'Oliver', 'Walker', 10, 2); -- HR specialist
+
+SHOW TABLES;
+SELECT * FROM department;
+SELECT * FROM role;
+SELECT * FROM employee;
